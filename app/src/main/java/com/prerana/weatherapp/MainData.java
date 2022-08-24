@@ -6,15 +6,16 @@ import java.io.Serializable;
 
 public class MainData {
 
+    @SerializedName("temp")
     private Double temperature;
+    @SerializedName("pressure")
     private String pressure;
 
-    @SerializedName("temp")
 
     public Double getTemperature() {
         return temperature;
     }
-    @SerializedName("pressure")
+
 
     public String getPressure() {
         return pressure;

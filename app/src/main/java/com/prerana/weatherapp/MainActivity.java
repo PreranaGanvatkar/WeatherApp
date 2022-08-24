@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtInfo = findViewById(R.id.txt_result);
+        txtInfo = findViewById(R.id.txt_resultt);
         btnFetch = findViewById(R.id.btn_fetch);
         edtCity = findViewById(R.id.edt_city);
 
@@ -42,13 +42,14 @@ public class MainActivity extends AppCompatActivity {
         btnFetch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Call<WeatherInfo> call = apiCall.getWeatherData(edtCity.getText().toString(),ServerInfo.API_KEY);
+                Call<WeatherInfo> call = apiCall.getWeatherData(edtCity.getText().toString(), ServerInfo.API_KEY);
                 call.enqueue(new Callback<WeatherInfo>() {
                     @Override
                     public void onResponse(Call<WeatherInfo> call, Response<WeatherInfo> response) {
                         WeatherInfo weatherInfo = response.body();
-                        txtInfo.setText(weatherInfo.getMainData().getPressure() + "-" + (weatherInfo.getMainData().getTemperature() -273.15));
+                        txtInfo.setText(weatherInfo.getMainData().getPressure() + "--" + (weatherInfo.getMainData().getTemperature() - 273.15));
                     }
+
 
                     @Override
                     public void onFailure(Call<WeatherInfo> call, Throwable t) {
